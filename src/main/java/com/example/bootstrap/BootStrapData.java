@@ -38,10 +38,13 @@ public class BootStrapData implements CommandLineRunner {
         Author author1 = new Author();
         author1.setFirstName("shalini");
         author1.setLastName("suryavanshi");
-        Book book1 = new Book("my programming journey", "1234567");
+        Book book1 = new Book();
+        book1.setTitle("my programming journey");
+        book1.setIsbn("1234567");
         book1.getAuthors().add(author1); // adding author to books
         author1.getBooks().add(book1);// adding books to author
         book1.setPublisher(publisher);
+        
         publisher.getBooks().add(book1);
         
         // save author in authorrepo
@@ -52,7 +55,10 @@ public class BootStrapData implements CommandLineRunner {
         Author author2 = new Author();
         author2.setFirstName("sample");
         author2.setLastName("suryavanshi");
-        Book book2 = new Book("my sample journey", "75745667");
+        Book book2 = new Book();
+        book2.setTitle("my sample journey");
+        book2.setIsbn("75745667");
+        
         book1.getAuthors().add(author2); // adding author to books
         author1.getBooks().add(book2);// adding books to author
         authorRepository.save(author2);
